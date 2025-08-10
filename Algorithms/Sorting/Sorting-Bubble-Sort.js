@@ -1,10 +1,4 @@
-// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-
-//  space complexity 0 (1)
-//  time complexity 0 (n^2)
-//  Not the best Algorithm
 export function bubbleSort(array) {
-  //Code here
   const length = array.length;
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length; j++) {
@@ -16,7 +10,5 @@ export function bubbleSort(array) {
       }
     }
   }
+  return array;
 }
-
-// bubbleSort(numbers);
-// console.log(numbers);
