@@ -76,6 +76,23 @@ export class BinarySearchTree {
     return list;
   }
 
+  breadthFirstSearchR(queue, list){
+    //  create base case to stop
+    if(!queue.length) return list;
+
+    let currentNode = queue.shift();
+    list.push(currentNode.value);
+    
+    if(currentNode.left) {
+      queue.push(currentNode.left)
+    
+    }
+    if(currentNode.right) {
+      queue.push(currentNode.right)
+    }
+    return this.breadthFirstSearch(queue,list)
+  }
+
 }
 
 // const tree = new BinarySearchTree();
