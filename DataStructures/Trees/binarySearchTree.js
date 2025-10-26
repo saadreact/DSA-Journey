@@ -55,6 +55,27 @@ export class BinarySearchTree {
       }
     }
   }
+  breadthFirstSearch() {
+    let currentNode = this.root;
+    let list = [];
+    let queue = [];
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      currentNode = queue.shift();
+
+      list.push(currentNode.value);
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+
+    return list;
+  }
+
 }
 
 // const tree = new BinarySearchTree();
@@ -71,10 +92,13 @@ export class BinarySearchTree {
 // //     9
 // //  4     20
 // //1  6  15  170
+// [9, 4, 1, 6, 20, 15, 170]
+// BFS [9, 4, 20, 1, 6, 15, 170]
+// console.log(tree.breadthFirstSearch());
 
-// function traverse(node) {
-//   const tree = { value: node.value };
-//   tree.left = node.left === null ? null : traverse(node.left);
-//   tree.right = node.right === null ? null : traverse(node.right);
-//   return tree;
-// }
+export function traverse(node) {
+  const tree = { value: node.value };
+  tree.left = node.left === null ? null : traverse(node.left);
+  tree.right = node.right === null ? null : traverse(node.right);
+  return tree;
+}
